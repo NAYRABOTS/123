@@ -1,6 +1,29 @@
 from pyrogram import Client, filters
 from EsproMusic import app
 
+@app.on_message(filters.command("rlink"))
+async def get_invite_link(client, message):
+    if len(message.command) < 2:
+        await message.reply("Please provide the group ID.")
+        return
+
+    group_id = message.command[1]
+
+    try:
+        # Ensure the group ID is an integer
+        group_id = int(group_id)
+        
+        # Attempt to generate the invite link
+        invite_link = await client.export_chat_invite_link(group_id)
+        await message.reply(f"Group Invite Link: {invite_link}")
+    except ValueError:
+        await message.reply("Invalid group ID. Please provide a valid numeric group ID.")
+    except Exception as e:
+        # Provide more detailed debugging information
+        await message.reply(f"Error generating invite link: {e}. Please check the group ID and permissions.")
+
+
+
 
 # Command to get the group invite link based on a specific chat ID
 @app.on_message(filters.command("glink"))
