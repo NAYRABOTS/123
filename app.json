@@ -86,23 +86,23 @@
 
       },
 
-      "HEROKU_API_KEY": {
+      "SUPPORT_GROUP": {
 
-        "description": "Your Heroku account's API key",
+        "description": "Your group ",
 
         "value": "",
 
-        "required": false
+        "required": true
 
       },
 
-      "HEROKU_APP_NAME": {
+      "SUPPORT_CHANNEL": {
 
-        "description": "Your heroku app name",
+        "description": "Your channel",
 
         "value": "",
 
-        "required": false
+        "required": true
 
       },
 
